@@ -25,7 +25,7 @@ resource "aws_internet_gateway" "igw" {
 #Route Table of IGW for Public Subnet
 resource "aws_route_table" "route_table" {
   vpc_id = aws_vpc.vpc01.id
-  route = {
+  route {
     cidr_block = "0.0.0.0/0"
     gateway_id = aws_internet_gateway.igw.id
   }
@@ -50,6 +50,7 @@ resource "aws_instance" "web_instance" {
 }
 #Security Group
 resource "aws_security_group" "sg_instance" {
+  vpc_id = aws_vpc.vpc01.id
   #ssh
   ingress{
     from_port = 22
