@@ -43,7 +43,7 @@ resource "aws_instance" "web_instance" {
   ami = "ami-0c2af51e265bd5e0e" 
   instance_type = var.instance_type
   subnet_id = aws_subnet.public_subnet.id
-  vpc_security_group_ids = 
+  vpc_security_group_ids = [aws_security_group.sg_instance.id]
   tags = {
     Name = "web001"
   }
