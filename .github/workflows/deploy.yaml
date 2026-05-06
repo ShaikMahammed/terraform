@@ -35,8 +35,8 @@ jobs:
 
       # 6. Terraform Plan
       - name: Terraform Plan
-        run: terraform plan
+        run: terraform plan -var-file="prod.tfvars"
 
       # 7. Terraform Apply
       - name: Terraform Apply
-        run: terraform apply -auto-approve
+        run: terraform apply -var-file="prod.tfvars"
